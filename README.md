@@ -1,6 +1,4 @@
-# React + Vite
-
-Ecommerce de Telefonos 
+# Ecommerce de Telefonos 
 
 ## Hermaientas utilizadas 
 - React
