@@ -9,11 +9,6 @@ export const Home = () => {
   const prepareRecentProducts = prepareProducts(recentCelulares)
   const preparePopularProducts = prepareProducts(popularCelulares)
 
-  console.log(new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    }).format(1500.54))
-
   return (
     <div className="">
         <FeatureGrid />
