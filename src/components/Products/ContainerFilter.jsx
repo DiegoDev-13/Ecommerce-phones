@@ -9,7 +9,16 @@ const availableBrands = [
     'Honor'
 ]
 
-export const ContainerFilter = () => {
+export const ContainerFilter = ({selectedBrands, setSelectedBrands}) => {
+
+  const handleBrandChange = (brand) => {
+    if(selectedBrands.includes(brand)){
+      setSelectedBrands(selectedBrands.filter(b => b !== brand)) 
+    } else { 
+      setSelectedBrands([...selectedBrands, brand])
+    }
+  }
+
   return (
     <div className="p-5 border border-slate-200 rounded-lg h-fit col-span-2 lg:col-span-1">
         <h3 className="text-xl font-semibold mb-4">Filtros</h3>
@@ -24,7 +33,7 @@ export const ContainerFilter = () => {
               {
                 availableBrands.map((brand) => (
                   <label key={brand} className="inline-flex items-center">
-                    <input type="checkbox" className="text-black border-black focus:ring-black accent-black" />
+                    <input type="checkbox" className="text-black border-black focus:ring-black accent-black" checked={selectedBrands.includes(brand)} onChange={() => handleBrandChange(brand)} />
                     <span className="ml-2 text-black cursor-pointer">{brand}</span>
                   </label>
                 ))

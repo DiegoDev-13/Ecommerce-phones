@@ -12,7 +12,7 @@ export const Banner = () => {
         {/* CONTENIDO */}
         <div className="relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center lg:py-40 lg:px-8">
             <h1 className="text-4xl font-bold mb-4 lg:text-6xl">
-                Los mejores ceculares del 2025
+                Los mejores celulares del 2025
             </h1>
             <p className="text-lg mb-8 lg:text-2xl">
                 Descubre las ofertas exclusivas y las ultimas novedades en celulares
