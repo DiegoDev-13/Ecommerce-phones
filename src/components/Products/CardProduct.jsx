@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { FiPlus } from "react-icons/fi";
 import { useState } from "react";
 import { formatPrice } from "../../helpers";
+import { Tag } from "../shared/Tag";
 
 export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 
@@ -39,7 +40,7 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 
         <div className="absolute top-2 left-2">
             {
-                stock === 0 && <span>Agotado</span>
+                stock === 0 && <Tag type='agotado' />
             }
         </div>
     </div>

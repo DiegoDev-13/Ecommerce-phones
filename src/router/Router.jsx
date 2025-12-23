@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { RootLayout } from "../layouts/RootLayout"
 import { Home } from "../pages/Home"
 import { CellPhones } from "../pages/CellPhones"
+import { CellPhonePage } from "../pages/CellPhonePage"
 import { About } from "../pages/About"
 
 export const MyRouters = () => {
@@ -10,6 +11,7 @@ export const MyRouters = () => {
         <Route path="/" element={<RootLayout/>}>
             <Route index element={<Home/>} />
             <Route path="celulares" element={<CellPhones/>} />
+            <Route path="celulares/:slug" element={<CellPhonePage/>} />
             <Route path="nosotros" element={<About />} />
         </Route>
     </Routes>

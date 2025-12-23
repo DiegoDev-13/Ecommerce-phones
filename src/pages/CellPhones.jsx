@@ -4,6 +4,7 @@ import { ContainerFilter } from '../components/Products/ContainerFilter'
 import { useFilteredProducts } from '../hooks/products/useFilteredProducts'
 import { useState } from 'react'
 import { Pagination } from '../components/shared/Pagination'
+import { Loader } from '../components/shared/Loader'
 
 export const CellPhones = () => {
 
@@ -25,7 +26,7 @@ export const CellPhones = () => {
         {
           isLoading ? (
             <div className="col-span-2 flex items-center justify-center h-125">
-              <p className='text-2xl'>Cargando...</p>
+              <Loader />
             </div>
           ) : (
             <div className="col-span-2 lg:col-span-2 xl:col-span-4 flex flex-col gap-12">
