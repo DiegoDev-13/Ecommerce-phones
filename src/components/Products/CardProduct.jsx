@@ -3,8 +3,33 @@ import { FiPlus } from "react-icons/fi";
 import { useState } from "react";
 import { formatPrice } from "../../helpers";
 import { Tag } from "../shared/Tag";
+import { useCartStore } from "../../store/cart.store";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const CardProduct = ({img, name, price, slug, colors, variants}) => {
+
+    const addItem = useCartStore(state => state.addItem)
+
+    const handleAddClick = (e) => {
+        e.preventDefault()
+
+        if(selectedVarian && selectedVarian.stock > 0) {
+            addItem({
+                variantId: selectedVarian.id,
+                productId : slug,
+                name,
+                image: img,
+                color: activeColor.name,
+                storage: selectedVarian.storage,
+                price: selectedVarian.price,
+                quantity: 1
+            });
+            toast.success('Producto agregado al carrito');
+        } else {
+            console.log('producto agotado')
+            toast.error('Producto agregado');
+            }
+    }
 
     const [activeColor, setActiveColor] = useState(colors[0])
 
@@ -20,7 +45,7 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
             <div className="flex h-87.5 w-full items-center justify-center py-2 lg:h-62.5">
                 <img src={img} alt={name} className="object-contain h-full w-full" />
             </div>
-            <button className="bg-white border border-slate-200 absolute w-full bottom-3 right-25 py-3 rounded-3xl flex items-center justify-center gap-1 text-sm font-medium hover:bg-stone-100 translate-25 transition-all duration-300 group-hover:translate-y-0"><FiPlus /> Añadir</button>
+            <button className="bg-white border border-slate-200 absolute w-full bottom-3 right-25 py-3 rounded-3xl flex items-center justify-center gap-1 text-sm font-medium hover:bg-stone-100 translate-25 transition-all duration-300 group-hover:translate-y-0 cursor-pointer" onClick={handleAddClick}><FiPlus /> Añadir</button>
         </Link>
 
         <div className="flex flex-col gap-1 items-center">
@@ -29,9 +54,11 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 
             <div className="flex gap-3">
                 {
-                    colors.map(item => (
-                        <span key={item.color} className={`grid place-items-center h-5 w-5 border border-slate-200 rounded-full cursor-pointer`}>
-                            <span className="w-3.5 h-3.5 rounded-full" style={{backgroundColor: item.color}} />
+                    colors.map(color => (
+                        <span key={color.color} className={`grid place-items-center h-5 w-5 border border-slate-200 rounded-full cursor-pointer ${
+                            activeColor.color === color.color ? 'border border-black' : ''
+                        }`} onClick={() => {setActiveColor(color)}} >
+                            <span className="w-3.5 h-3.5 rounded-full" style={{backgroundColor: color.color}} />
                         </span>
                     ))
                 }
