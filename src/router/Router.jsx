@@ -8,6 +8,9 @@ import { LoginPage } from "../pages/LoginPage"
 import { RegisterPage } from "../pages/RegisterPage"
 import { ClientLayout } from "../layouts/ClientLayout"
 import { OrdersUserPage } from "../pages/OrdersUserPage"
+import { CheckoutPage } from "../pages/CheckoutPage"
+import { ThankyouPage } from "../pages/ThankyouPage"
+import { OrderUSerPage } from "../pages/OrderUSerPage"
 
 export const MyRouters = () => {
   return (
@@ -22,8 +25,11 @@ export const MyRouters = () => {
             <Route path="account" element={<ClientLayout />}>
               <Route index element={<Navigate to='pedidos' />}/>
               <Route path="pedidos" element={<OrdersUserPage />}/>
+              <Route path="pedidos/:id" element={<OrderUSerPage />} />
             </Route>
         </Route>
+        <Route path="/checkout"  element={<CheckoutPage />} />
+        <Route path="/checkout/:id/thank-you" element={<ThankyouPage />} />
     </Routes>
   )
 }

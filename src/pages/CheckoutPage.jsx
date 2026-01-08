@@ -1,0 +1,51 @@
+import { Link } from "react-router-dom"
+import { useCartStore } from "../store/cart.store"
+import { FormCheckOut } from "../components/checkout/FormCheckOut"
+import { ItemsCheckout } from "../components/checkout/ItemsCheckout"
+
+export const CheckoutPage = () => {
+
+    const totalItems = useCartStore(state => state.totalItemsInCart)
+
+  return (
+    <div style={{
+        minHeight: 'calc(100vh - 100px)'
+    }}>
+        <header className="h-25 bg-white text-black flex justify-center items-center flex-col px-10 border-b border-slate-200 ">
+            <Link to='/' className="text-4xl font-bold self-center tracking-tighter transition-all md:text5xl md:self-start">
+                <p>
+                    Calulares<span className="text-cyan-600">Baratos</span>
+                </p>
+            </Link>
+        </header>
+
+        <main className="w-full h-full flex relative">
+            {
+                totalItems === 0 ? (
+                    <div className="flex flex-col justify-center items-center gap-5 w-full" style={{
+                        height: 'calc(100vh - 100px)'
+                    }}>
+                        <p className="text-sm font-medium tracking-tighter">Su carro esta vacío!</p>
+                        <Link to='/celulares' className="p-4 bg-black rounded-full text-white px-7 text-xs uppercase tracking-widest font-semibold">
+                            Empezar a comprar
+                        </Link>
+                    </div>
+                ) : (
+                    <>
+                        <div className="w-full md:w-[50%] p-10">
+                            <FormCheckOut />
+                        </div>
+
+                        <div className="bg-stone-100 w-[50%] sticky top-0 right-0 p-10 hidden md:block" style={{
+                            minHeight: 'calc(100vh - 100px)'
+                        }}>
+                            {/* Elementos del carrito  */}
+                            <ItemsCheckout />
+                        </div>
+                    </>
+                )
+            }
+        </main>
+    </div>
+  )
+}

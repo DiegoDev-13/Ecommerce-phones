@@ -1,0 +1,25 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { createOrder } from '../../actions/order'
+import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
+
+export const useCreateOrder = () => {
+    const queryClient = useQueryClient()
+    const navigate = useNavigate()
+
+    const {mutate, isPending} = useMutation({
+        mutationFn: createOrder,
+        onSuccess: (data) =>{
+            queryClient.invalidateQueries({queryKey: ['orders']})
+            navigate(`/checkout/${data.id}/thank-you`)
+        },
+        onError: (err) => {
+            toast.error(err.message)
+        }
+     })
+
+     return {
+        mutate,
+        isPending
+     }
+}
