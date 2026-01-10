@@ -45,3 +45,31 @@ export const prepareProducts = (products) => {
 
     })
 }
+
+// Funcion para formatear la fecha a formato 6 de enero 2026
+export const formatDateLong = (date) => {
+    const dateObject = new Date(date)
+
+    return dateObject.toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
+}
+
+// Funcion para obtener el estado del pedido en español
+export const getStatus = (status) => {
+    switch (status) {
+        case 'Pending':
+            return 'Pendiente'
+        case 'Paid':
+            return 'Pagado'
+        case 'Shipped':
+            return 'Enviado'
+        case 'Delivered':
+            return 'Entregado'
+        default:
+            return status
+    }
+
+}
