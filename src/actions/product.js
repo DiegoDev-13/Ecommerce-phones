@@ -1,14 +1,19 @@
 import { supabase } from "../supabase/Client"
 
-export const getProducts = async () => {
-    const {data: products, error} = await supabase.from('products').select('*, variants(*)').order('created_at', {ascending: false})
+export const getProducts = async (page) => {
+
+    const itemsPerPages = 10
+    const from = (page - 1) * itemsPerPages
+    const to = from + itemsPerPages - 1
+
+    const {data: products, error, count} = await supabase.from('products').select('*, variants(*)', {count: 'exact'}).order('created_at', {ascending: false}).range(from, to)
 
     if(error) {
         console.log(error.message)
         throw new Error(error.message);
     }
 
-    return products
+    return {products, count}
 }
 
 export const getFilterProducts = async ({page = 1, brands = []}) => {

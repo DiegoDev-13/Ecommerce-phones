@@ -57,6 +57,17 @@ export const formatDateLong = (date) => {
     })
 }
 
+// Funcion para formatear la fecha formato dd/mm/yyyy
+export const formatDateShort = (date) => {
+    const dateObject = new Date(date)
+
+    return dateObject.toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: '2-digit',
+        day: 'numeric'
+    })
+}
+
 // Funcion para obtener el estado del pedido en español
 export const getStatus = (status) => {
     switch (status) {
@@ -73,3 +84,4 @@ export const getStatus = (status) => {
     }
 
 }
+

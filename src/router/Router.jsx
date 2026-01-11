@@ -11,6 +11,9 @@ import { OrdersUserPage } from "../pages/OrdersUserPage"
 import { CheckoutPage } from "../pages/CheckoutPage"
 import { ThankyouPage } from "../pages/ThankyouPage"
 import { OrderUSerPage } from "../pages/OrderUSerPage"
+import { DashboardLayout } from "../layouts/DashboardLayout"
+import { DashboardProductsPage } from "../pages/dashboard/DashboardProductsPage"
+
 
 export const MyRouters = () => {
   return (
@@ -22,7 +25,7 @@ export const MyRouters = () => {
             <Route path="nosotros" element={<About />} />
             <Route path="login"  element={<LoginPage />}/>
             <Route path="register"  element={<RegisterPage />}/>
-            <Route path="account" element={<ClientLayout />}>
+            <Route path="/account" element={<ClientLayout />}>
               <Route index element={<Navigate to='pedidos' />}/>
               <Route path="pedidos" element={<OrdersUserPage />}/>
               <Route path="pedidos/:id" element={<OrderUSerPage />} />
@@ -30,6 +33,10 @@ export const MyRouters = () => {
         </Route>
         <Route path="/checkout"  element={<CheckoutPage />} />
         <Route path="/checkout/:id/thank-you" element={<ThankyouPage />} />
+        <Route path="/dashboard" element={<DashboardLayout />} > 
+          <Route index element={<Navigate to='products' />} />
+          <Route path="products" element={<DashboardProductsPage />} />
+        </Route>
     </Routes>
   )
 }

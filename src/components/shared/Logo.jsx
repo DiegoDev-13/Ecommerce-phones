@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-export const Logo = () => {
+export const Logo = ({isDashboard}) => {
   return (
-    <Link to='/' className={`text-2xl font-bold tracking-tighter transition-all`}>
+    <Link to='/' className={`text-2xl font-bold tracking-tighter transition-all ${isDashboard && 'hover:scale-105'}`}>
         <p className="hidden lg:block">
             Celulares
             <span className="text-cyan-600">Baratos</span>
