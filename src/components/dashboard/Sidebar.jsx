@@ -23,7 +23,7 @@ export const Sidebar = () => {
     }
 
   return (
-    <div className="w-30 bg-stone-800 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-62.5">
+    <div className="w-30 bg-stone-800 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-62.5 transition-all duration-200">
         <Logo isDashboard={true} />
 
         <nav className="w-full space-y-5 flex-1">

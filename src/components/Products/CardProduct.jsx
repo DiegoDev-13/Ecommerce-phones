@@ -4,7 +4,7 @@ import { useState } from "react";
 import { formatPrice } from "../../helpers";
 import { Tag } from "../shared/Tag";
 import { useCartStore } from "../../store/cart.store";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 

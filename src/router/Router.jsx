@@ -13,6 +13,7 @@ import { ThankyouPage } from "../pages/ThankyouPage"
 import { OrderUSerPage } from "../pages/OrderUSerPage"
 import { DashboardLayout } from "../layouts/DashboardLayout"
 import { DashboardProductsPage } from "../pages/dashboard/DashboardProductsPage"
+import { DashboardNewProductPage } from "../pages/dashboard/DashboardNewProductPage"
 
 
 export const MyRouters = () => {
@@ -36,6 +37,7 @@ export const MyRouters = () => {
         <Route path="/dashboard" element={<DashboardLayout />} > 
           <Route index element={<Navigate to='products' />} />
           <Route path="products" element={<DashboardProductsPage />} />
+          <Route path="products/new" element={<DashboardNewProductPage />} />
         </Route>
     </Routes>
   )

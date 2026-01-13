@@ -85,3 +85,11 @@ export const getStatus = (status) => {
 
 }
 
+// Funcion para generar el slug de un producto
+export const generateSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')   // reemplaza todo lo que no sea alfanumérico por "-"
+    .replace(/^-+|-+$/g, '')       // elimina guiones al inicio y al final
+    .replace(/--+/g, '-');         // colapsa múltiples guiones
+}
