@@ -1,5 +1,6 @@
 import { EditorContent, useEditor, useEditorState } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import { useEffect } from 'react'
 
 export const Editor = ({setvalue, errors, initialContent}) => {
 
@@ -17,6 +18,13 @@ export const Editor = ({setvalue, errors, initialContent}) => {
             }
         }
     })
+
+    useEffect(() => {
+      if(initialContent && editor) {
+        editor.commands.setContent(initialContent)
+      }
+    }, [initialContent, editor])
+    
 
   return (
     <div className="space-y-3">

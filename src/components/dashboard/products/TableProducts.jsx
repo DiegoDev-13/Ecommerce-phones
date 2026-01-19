@@ -7,6 +7,7 @@ import { Loader } from '../../shared/Loader'
 import { formatDateShort, formatPrice } from "../../../helpers";
 import { Pagination } from "../../shared/Pagination";
 import { CellTableProduct } from "./CellTableProduct";
+import { useDeleteProduct } from "../../../hooks/products/useDeleteProduct";
 
 const tableHeaders = [
   '',
@@ -26,8 +27,11 @@ export const TableProducts = () => {
 
   const {products, totalProducts, isLoading} = useProducts({page})
 
+  const {mutate, isPending} = useDeleteProduct()
+
   const handleDeleteProduct = (id) => {
-    console.log(`Producto eliminado con id: ${id}`)
+    mutate(id)
+    setOpenMenuIndex(null)
   }
 
   const handleVariantChange = (productId, variantIndex) => {
@@ -42,7 +46,7 @@ export const TableProducts = () => {
     }
   }
 
-  if(isLoading || !products || !totalProducts) return <Loader />
+  if(isLoading || !products || !totalProducts || isPending) return <Loader />
 
   return (
     <div className="flex flex-col flex-1 border border-slate-200 rounded-lg p-5 bg-white">
@@ -73,7 +77,7 @@ export const TableProducts = () => {
                 products.map((product, index) => {
 
                   const seletedVariantIndex = selectedVariants[product.id] ?? 0
-                  const seletedVariant = product.variants[seletedVariantIndex]
+                  const seletedVariant = product.variants[seletedVariantIndex] || {}
 
                   return (
                     <tr key={product.id}>
@@ -92,8 +96,8 @@ export const TableProducts = () => {
                           }
                         </select>
                       </td>
-                      <CellTableProduct content={formatPrice(seletedVariant.price)} />
-                      <CellTableProduct content={seletedVariant.stock} />
+                      <CellTableProduct content={formatPrice(seletedVariant?.price)} />
+                      <CellTableProduct content={seletedVariant.stock || 0} />
                       <CellTableProduct content={formatDateShort(product.created_at)} />
                       <td className="relative" onClick={() => handleMenuTogle(index)}>
                         <button className="text-slate-900 cursor-pointer">
@@ -102,7 +106,7 @@ export const TableProducts = () => {
                         {
                           openMenuIndex === index && (
                             <div className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-xl z-10 w-30" role="menu">
-                              <Link to={`/dashboard/products/editar/${product.slug}`} className="flex items-center gap-1 w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                              <Link to={`/dashboard/products/edit/${product.slug}`} className="flex items-center gap-1 w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100">
                                 Editar
                                 <HiOutlineExternalLink size={13} className="inline-block" />
                               </Link>

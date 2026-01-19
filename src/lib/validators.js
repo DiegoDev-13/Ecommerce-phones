@@ -40,7 +40,7 @@ export const productSchema = z.object({
   description: z.custom(value => !isContentEmpty(value), {message: 'La descripción no puede estar vacia'}),
   variants: z.array(z.object({
     id: z.string().optional(),
-    stock: z.number().min(1, 'El stock debe ser mayor a 0'),
+    stock: z.number(),
     price: z.number().min(1, 'El precio debe ser mayor a 0'),
     storage: z.string().min(1, 'El almacenamiento es requerido'),
     color: z.string().regex(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$|^(?:rgb|hsl)a?\(\s*(?:\d{1,3}\s*,\s*){2}\d{1,3}\s*(?:,\s*(?:0|1|0?\.\d+))?\s*\)$/, 'El color debe ser un valor valido en formato hexadecimal, RGB o HSL'),

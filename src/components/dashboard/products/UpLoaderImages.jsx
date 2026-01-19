@@ -1,9 +1,26 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export const UpLoaderImages = ({setValue, watch, errors}) => {
 
     const [images, setImages] = useState([])
+
+    // Verificar si hay errores con las imagenes 
+    const formImages = watch('images')
+
+    // Cargar imagenes existentes si las hay en el formulario
+    useEffect(() => {
+      if(formImages && formImages.length > 0 && images.length == 0) {
+        const existingImages = formImages.map(url => ({
+            previewUrl: url
+        }))
+        setImages(existingImages)
+
+        // Actualizar el valor del formulario
+        setValue('images', formImages)
+      }
+    }, [formImages, images.length, setValue])
+    
 
     const handleImageChange = (e) => {
         if(e.target.files) {
@@ -47,7 +64,7 @@ export const UpLoaderImages = ({setValue, watch, errors}) => {
         </div>
 
         {
-            errors.images && (
+            formImages?.length === 0 && errors.images && (
                 <p className="text-xs text-red-500 mt-1">
                     {errors.images.message}
                 </p>

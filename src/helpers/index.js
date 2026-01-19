@@ -93,3 +93,15 @@ export const generateSlug = (name) => {
     .replace(/^-+|-+$/g, '')       // elimina guiones al inicio y al final
     .replace(/--+/g, '-');         // colapsa múltiples guiones
 }
+
+// Funcion para extraer el path relativo de una URL
+export const extratFilePath = (url) => {
+    const parts = url.split('/storage/v1/object/public/product-images/')
+    // EJEMPLO: ['/storage/v1/object/public/product-images/', '4554864641864645414561-iphone16-pro-max.jpg]
+
+    if(parts.length !== 2) {
+        throw new Error(`url no valida: ${url}`);
+    }
+
+    return parts[1]
+}
