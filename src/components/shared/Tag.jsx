@@ -9,7 +9,7 @@ export const Tag = ({type}) => {
     }
     
   return (
-    <div className={`${getTagColor(type)} text-white w-fit py-0.5 px-2 rounded-2xl`}>
+    <div className={`${getTagColor(type)} text-white w-fit py-1 px-6 rounded`}>
         <p className="uppercase text-xs font-medium">{type}</p>
     </div>
   )

@@ -110,3 +110,14 @@ export const getUserData = async (userId) => {
 
     return data
 }
+
+export const getUserRole = async (userId) => {
+    const {data, error} = await supabase.from('user_roles').select('role').eq('user_id', userId).single()
+
+    if(error) {
+        console.log(error)
+        throw new Error('Error al obtener el rol del usuario');
+    }
+
+    return data.role
+}
