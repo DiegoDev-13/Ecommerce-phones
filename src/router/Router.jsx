@@ -15,6 +15,8 @@ import { DashboardLayout } from "../layouts/DashboardLayout"
 import { DashboardProductsPage } from "../pages/dashboard/DashboardProductsPage"
 import { DashboardNewProductPage } from "../pages/dashboard/DashboardNewProductPage"
 import { DashboardProductSlugPage } from "../pages/dashboard/DashboardProductSlugPage"
+import { DashboardOrdersPage } from "../pages/dashboard/DashboardOrdersPage"
+import { DashboardOrderPage } from "../pages/dashboard/DashboardOrderPage"
 
 
 export const MyRouters = () => {
@@ -40,6 +42,8 @@ export const MyRouters = () => {
           <Route path="products" element={<DashboardProductsPage />} />
           <Route path="products/new" element={<DashboardNewProductPage />} />
           <Route path="products/edit/:slug" element={<DashboardProductSlugPage />} />
+          <Route path="orders" element={<DashboardOrdersPage />} />
+          <Route path="orders/:id" element={<DashboardOrderPage />} />
         </Route>
     </Routes>
   )

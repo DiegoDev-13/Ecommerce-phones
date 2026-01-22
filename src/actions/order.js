@@ -188,3 +188,62 @@ export const getOrderById = async (orderId) => {
     }
 }
 
+// ###########################################
+            // ADMINISTRADOR 
+// ###########################################
+
+export const getAllOrders = async () => {
+    const {data, error} = await supabase.from('orders').select('id, total_amount, status, created_at, customers(full_name, email)').order('created_at', {ascending: false})
+
+    if(error) {
+        console.log(error)
+        throw new Error(error.message);
+    }
+
+    return data
+}
+
+export const updateOrderStauts = async ({id, status}) => {
+    const {error} = await supabase.from('orders').update({status}).eq('id', id)
+
+    if(error) {
+        console.log(error)
+        throw new Error(error.message);
+        
+    }
+}
+
+export const getOrderByIdAdming = async (id) => {
+    const {data: order, error: orderError} = await supabase.from('orders').select('*, addresses(*), customers(full_name, email), order_items(quantity, price, variants(color_name, storage, products(name, images)))').eq('id', id).single()
+
+    if(orderError) {
+        console.log(orderError)
+        throw new Error(orderError.message);
+    }
+
+    return {
+        customer: {
+            email: order.customers?.email,
+            full_name: order.customers?.full_name
+        },
+        totalAmount: order.total_amount,
+        status: order.status,
+        created_at: order.created_at,
+        addresses: {
+            addressLine1: order.addresses?.address_line1,
+            addressLine2: order.addresses?.address_line2,
+            city: order.addresses?.city,
+            state: order.addresses?.state,
+            postalCode: order.addresses?.postal_code,
+            country: order.addresses?.country,
+        },
+        orderItems: order.order_items.map(item => ({
+            quantity: item.quantity,
+            price: item.price,
+            colorName: item.variants?.color_name,
+            storage: item.variants?.storage,
+            productName: item.variants?.products?.name,
+            productImage: item.variants?.products?.images[0],
+        }))
+    }
+}
