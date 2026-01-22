@@ -10,6 +10,8 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 
     const addItem = useCartStore(state => state.addItem)
 
+    console.log(img[0])
+
     const handleAddClick = (e) => {
         e.preventDefault()
 
@@ -43,7 +45,7 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
     <div className="flex flex-col gap-6 relative ">
         <Link to={`/celulares/${slug}`} className="flex relative group overflow-hidden">
             <div className="flex h-87.5 w-full items-center justify-center py-2 lg:h-62.5">
-                <img src={img} alt={name} className="object-contain h-full w-full" />
+                <img src={img[0]} alt={name} className="object-contain h-full w-full" />
             </div>
             <button className="bg-white border border-slate-200 absolute w-full bottom-3 right-25 py-3 rounded-3xl flex items-center justify-center gap-1 text-sm font-medium hover:bg-stone-100 translate-25 transition-all duration-300 group-hover:translate-y-0 cursor-pointer" onClick={handleAddClick}><FiPlus /> Añadir</button>
         </Link>
