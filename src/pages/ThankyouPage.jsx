@@ -35,8 +35,8 @@ export const ThankyouPage = () => {
         <header className="text-black flex items-center justify-center flex-col px-10 py-12 ">
             <Link to='/' className="text-4xl font-bold self-center tracking-tighter transition-all md:text-5xl md:self-start">
                 <p>
-                    Celulares
-                    <span className="text-cyan-600">Baratos</span>
+                    Master
+                    <span className="text-cyan-600">Cell</span>
                 </p>
             </Link>
         </header>   
@@ -52,20 +52,20 @@ export const ThankyouPage = () => {
                 <h3 className="font-medium">Tu pedido está confirmado</h3>
 
                 <p className="text-sm">
-                    Gracias por realizar tu compra en CelularesBaratos. Para realizar la transferencia te compartimos los siguientes datos
+                    Gracias por realizar tu compra en mastercell. Para realizar la transferencia te compartimos los siguientes datos
                 </p>
 
                 <div className="space-y-0.5 text-sm">
                     <p>Compra a traves de transferencia bancaria</p>
                     <p>Banco de Venezuela</p>
-                    <p>Razón Social: CelularesBaratos</p>
+                    <p>Razón Social: mastercell</p>
                     <p>Cedula: 179451656</p>
                     <p>Tipo de cuenta: Corriente</p>
                     <p>Numero de Cuenta: 0102-1441-14-1545658</p>
                 </div>
 
                 <p className="text-sm">
-                    Una vez realizada la transferencia, comparte tu comprobante a ventas@celularesbaratos.com para procesarla y hacerte la entrega de tu pedido.
+                    Una vez realizada la transferencia, comparte tu comprobante a ventas@mastercell.com para procesarla y hacerte la entrega de tu pedido.
                 </p>
             </div>
 

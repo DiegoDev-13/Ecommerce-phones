@@ -16,7 +16,7 @@ export const NavbarMobile = () => {
         {/* Contenido  */}
         <div className="flex flex-col gap-20">
             <Link to='/' className="text-4xl font-bold tracking-tighter transition-all" onClick={() => setActiveMobile(false)} >
-                <p>Celulares<span className="text-cyan-600">Baratos</span></p>
+                <p>Master<span className="text-cyan-600">Cell</span></p>
             </Link>
 
             <nav className="flex flex-col items-center gap-5">

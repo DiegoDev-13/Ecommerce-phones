@@ -122,7 +122,7 @@ export const FormCheckOut = () => {
                 <div className='bg-stone-100 text=[13px] p-5 space-y-0.5 border border-gray-200 rounded-es-md rounded-ee-md'>
                     <p>Compra a traves de transferencia bancaria</p>
                     <p>Banco de Venezuela</p>
-                    <p>Razón Social: CelularesBaratos</p>
+                    <p>Razón Social: MasterCell</p>
                     <p>Cedula: 179451656</p>
                     <p>Tipo de cuenta: Corriente</p>
                     <p>Numero de Cuenta: 0102-1441-14-1545658</p>

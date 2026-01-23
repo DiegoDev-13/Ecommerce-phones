@@ -34,7 +34,7 @@ export const CheckoutPage = () => {
         <header className="h-25 bg-white text-black flex justify-center items-center flex-col px-10 border-b border-slate-200 ">
             <Link to='/' className="text-4xl font-bold self-center tracking-tighter transition-all md:text5xl md:self-start">
                 <p>
-                    Calulares<span className="text-cyan-600">Baratos</span>
+                    Master<span className="text-cyan-600">Cell</span>
                 </p>
             </Link>
         </header>

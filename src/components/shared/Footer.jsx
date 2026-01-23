@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom"
 import { BiChevronRight } from "react-icons/bi";
 import { socialLinks } from "../../constants/link";
+import { FaGithub } from "react-icons/fa";
 
 export const Footer = () => {
   return (
     <footer className="py-16 bg-gray-950 px-12 flex justify-between gap-10 text-slate-200 flex-wrap mt-10 md:flex-nowrap ">
 
-        <Link to='/' className={`text-2xl font-bold tracking-tighter transition-all text-white flex-1`}>
-            Celulares Baratos 
-        </Link>
+        <div className="flex flex-col gap-4 flex-1">
+            <Link to='/' className={`text-3xl font-bold text-center tracking-tighter transition-all text-white flex-1`}>
+                MasterCell
+            </Link>
+            
+            <div className="flex flex-col gap-2 items-center pt-3">
+                <p className="font-semibold text-[16px]">Desarrollado por:</p>
+                <Link to='https://github.com/DiegoDev-13' className="flex flex-col items-center gap-1 text-sm">
+                    <FaGithub size={40} />
+                    Github - Diego Martinez
+                </Link>
+            </div>
+
+        </div>
+
 
         <div className="flex flex-col gap-4 flex-1">
             <p className="font-semibold uppercase tracking-tighter">
@@ -44,7 +57,7 @@ export const Footer = () => {
             </p>
 
             <p className="text-xs leading-6">
-                No te pierdas las novedades que CelularesBaratos tiene para ti.
+                No te pierdas las novedades que MasterCell tiene para ti.
             </p>
 
             <div className="flex">

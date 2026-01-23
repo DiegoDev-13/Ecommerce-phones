@@ -7,16 +7,16 @@ export const About = () => {
 
         <div className="flex flex-col gap-4 tracking-tighter leading-7 text-sm font-medium text-slate-800">
           <p>
-            CelularesBaratos es una tienda en linea que se dedica a la venta de celulares, fundada en 2022. Nuestro objetivo es ofrecer a nuestros clientes la mejor calidad y precio en celulares. Contamos con un equipo de profecionales que se encargan de seleccionar los mejores productos para ti.
+            MasterCell es una tienda en linea que se dedica a la venta de celulares, fundada en 2022. Nuestro objetivo es ofrecer a nuestros clientes la mejor calidad y precio en celulares. Contamos con un equipo de profecionales que se encargan de seleccionar los mejores productos para ti.
           </p>
 
           <p>
-            En CelularesBaratos podras encontrar una amplia variedad de celulares de las mejores marcas. Ademas, contamos con promociones y descuentos exclucivos para que puedas comprar tu celular al mejor precio.
+            En MasterCell podras encontrar una amplia variedad de celulares de las mejores marcas. Ademas, contamos con promociones y descuentos exclucivos para que puedas comprar tu celular al mejor precio.
           </p>
 
-          <h2 className="text-3xl font-semibold tracking-tight mt-8 mb-4">¡No esperes mas y compra tu celular en CelularesBaratos!</h2>
+          <h2 className="text-3xl font-semibold tracking-tight mt-8 mb-4">¡No esperes mas y compra tu celular en MasterCell!</h2>
           <p>
-            Para mas imformacion, no olvides en ponerte en contacto con nosotros, a traves de nuestro correo electronico <a href="mailto:correo@celularesbaratos.com">correo@celularesbaratos.com</a> o llamando al <a href="tel:3333333">3333333</a>
+            Para mas imformacion, no olvides en ponerte en contacto con nosotros, a traves de nuestro correo electronico <a href="mailto:correo@mastercell.com">correo@mastercell.com</a> o llamando al <a href="tel:3333333">3333333</a>
           </p>
         </div>
     </div>

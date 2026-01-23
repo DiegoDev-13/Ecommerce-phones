@@ -10,8 +10,6 @@ export const CardProduct = ({img, name, price, slug, colors, variants}) => {
 
     const addItem = useCartStore(state => state.addItem)
 
-    console.log(img[0])
-
     const handleAddClick = (e) => {
         e.preventDefault()
 
